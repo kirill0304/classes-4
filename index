@@ -73,6 +73,29 @@ https://stackoverflow.com/questions/5793214/creating-programming-code-box-on-my-
       </code>
       </div> <br />
     </ul>
+    <ul>
+      <li><strong>git diff</strong></li><br />
+      Diffing is a function that takes two input data sets and outputs
+      the changes between them. Git diff is a multi-use Git command that 
+      when executed runs a diff function on Git data sources. These data
+      sources can be commits, branches, files and more. One of the most
+      common things you’ll do with ‘git diff’ is to see what changes
+      you’ve made in your working directory that have not been staged
+      yet.<br />
+      In order to see the changes that have been staged already, you can
+      pass the ‘--staged’ option to ‘git diff’:<br />
+      <div class=”codebox”>
+        <code>
+        $ git diff --staged
+        </code>
+      </div><br />
+      Typically you would want comparison with the latest commit, so if
+      you do not give commit, it defaults to HEAD. If HEAD does not
+      exist (e.g. unborn branches) and commit is not given, it shows all
+      staged changes.<br />
+      --staged is a synonym of –cached (which is used in pre-1.6
+      versions of Git)<br />
+    </ul>
   </div>
 </div>
 </body>
