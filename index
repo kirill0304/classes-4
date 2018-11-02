@@ -22,6 +22,81 @@ https://stackoverflow.com/questions/5793214/creating-programming-code-box-on-my-
   <h1>Git Manual</h1>
   <div id="commands">
     <ul>
+      <li><strong>git checkout -b</strong></li><br />
+      This command creates a new branch in our local Git repository and then switches to it. It is really
+      helpful in dividing our work - in most cases, we use model 'branch-per-feature', which means that
+      we create a new branch for every feature we're currently working at. For example,
+      when we are about to work on login system, before start we should type in console: <br />
+      <div class="codebox">
+        <code>
+          $ git checkout -b login-system
+        </code>
+      </div> <br />
+      And then, we are good to go, as every change that we'll make from that point before merging or checking out
+      to another branch will be saved only in branch 'login-system'. <br />
+      The benefits of branching include ease of reverting the changes if something goes wrong
+      and provision of isolated environment for every change to the codebase (this ensures that
+      the master branch always contains production-quality code). <br />
+      Note that <br />
+      <div class="codebox">
+      <code>
+        $ git checkout -b login-system
+      </code>
+      </div> <br />
+      and <br />
+      <div class="codebox">
+        <code>
+          $ git branch login-system
+          $ git checkout login-system
+        </code>
+      </div> <br />
+      are doing exactly the same thing (but the second one in two steps).
+    </ul>
+    <ul>
+      <li><strong>git branch --merged</strong></li><br />
+      List, create, or delete branches. With --merged, only branches
+      merged into the named commit (i.e. the branches whose tip commits are 
+      reachable from the named commit) will be listed.
+      Only list branches whose tips are reachable from the specified
+      commit (HEAD if not specified). Implies --list, incompatible with
+      --no-merged. <br />
+      <div class="codebox">
+        <code>
+          $ git branch --merged
+        </code>
+      </div> <br />
+      Example:  <br />
+      <div class="codebox">
+      <code>
+        $ git branch --merged
+    * master
+      </code>
+      </div> <br />
+    </ul>
+    <ul>
+      <li><strong>git diff</strong></li><br />
+      Diffing is a function that takes two input data sets and outputs
+      the changes between them. Git diff is a multi-use Git command that 
+      when executed runs a diff function on Git data sources. These data
+      sources can be commits, branches, files and more. One of the most
+      common things you’ll do with ‘git diff’ is to see what changes
+      you’ve made in your working directory that have not been staged
+      yet.<br />
+      In order to see the changes that have been staged already, you can
+      pass the ‘--staged’ option to ‘git diff’:<br />
+      <div class=”codebox”>
+        <code>
+        $ git diff --staged
+        </code>
+      </div><br />
+      Typically you would want comparison with the latest commit, so if
+      you do not give commit, it defaults to HEAD. If HEAD does not
+      exist (e.g. unborn branches) and commit is not given, it shows all
+      staged changes.<br />
+      --staged is a synonym of –cached (which is used in pre-1.6
+      versions of Git)<br />
+    </ul>
+    <ul>
       <li><strong>git config --global user.email ""</strong></li><br />
       This command specifies that we're working on git, that we are configuring it and that the configuration that we're making its for every project in the future (that's why --global is being used). If we'd like to use this configuration only for the current project we shouldn't include --global into the command list. User.mail"" specifies that we're making changes into the profile and adding the profile. If quotes are not included the command prints out the current email stored in the profile.
       <div class="codebox">
@@ -59,7 +134,7 @@ https://stackoverflow.com/questions/5793214/creating-programming-code-box-on-my-
       <div class="codebox">
         <code>
           <font color="green">$</font> git branch -f "branch" ["start point"]
-		  <br><font color="green">$</font> git checkout "branch"</br>
+      <br><font color="green">$</font> git checkout "branch"</br>
         </code>
       </div> <br />
       that is to say, the branch is not reset/created unless "git checkout" is successful.<br />
@@ -85,7 +160,7 @@ https://stackoverflow.com/questions/5793214/creating-programming-code-box-on-my-
 When you commit in Git, Git stores a commit object that contains a pointer to the snapshot of the content you staged, the author and message metadata, and zero or more pointers to the commit or commits that were the direct parents of this commit: zero parents for the first commit, one parent for a normal commit, and multiple parents for a commit that results from a merge of two or more branches.
 <br></br>
 <br><i>As u can se below, this command creates a branch called test. By default the main branch is called master.</i></br>
-	<br></br>
+  <br></br>
       <div class="codebox">
         <code>
           <font color="green">$</font> git branch test
@@ -99,13 +174,13 @@ When you commit in Git, Git stores a commit object that contains a pointer to th
       <center><strong><font color="red">ATTENTION!</font></strong></center>
       <br>To see all the branches that contain work you haven't yet merged in, you can run git branch --no-merged:</br>
       <div class="codebox">
-      	<code><font color="green">$</font> git branch --no-merged
+        <code><font color="green">$</font> git branch --no-merged
   test
 </code>
 </div>
 <br>This shows your other branch. Because it contains work that is NOT merged in yet, trying to delete it with git branch -d will fail:</br>
 <div class="codebox">
-	<code><font color="green">$</font> git branch -d test
+  <code><font color="green">$</font> git branch -d test
 <br><font color="red">error:</font> The branch '<font color="blue">test</font>' is not fully merged.
 If you are sure you want to delete it, run 'git branch -D test'.</br></code>
 
@@ -116,14 +191,14 @@ If you are sure you want to delete it, run 'git branch -D test'.</br></code>
       When working with other people's repositories, there are a few basic Git commands to remember:
       <br></br>
       <ul>
-      	<li><strong>git clone</strong></li>
-      	<li><strong>git fetch</strong></li>
-      	<li><strong>git pull</strong></li>
-      	<li><strong>git merge</strong></li>
-      	<br></br>
+        <li><strong>git clone</strong></li>
+        <li><strong>git fetch</strong></li>
+        <li><strong>git pull</strong></li>
+        <li><strong>git merge</strong></li>
+        <br></br>
       </ul>
-      	<br> You use git fetch to retrieve new work done by other people. Fetching from a repository grabs all the new remote-tracking branches and tags without merging those changes into your own branches.</br>
-      	<br></br>
+        <br> You use git fetch to retrieve new work done by other people. Fetching from a repository grabs all the new remote-tracking branches and tags without merging those changes into your own branches.</br>
+        <br></br>
       <div class="codebox">
         <code>
           <font color="green">$</font> git fetch remotename
