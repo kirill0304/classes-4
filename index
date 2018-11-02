@@ -69,7 +69,7 @@ https://stackoverflow.com/questions/5793214/creating-programming-code-box-on-my-
       <div class="codebox">
       <code>
         $ git branch --merged
-    * master
+		* master
       </code>
       </div> <br />
     </ul>
