@@ -96,6 +96,123 @@ https://stackoverflow.com/questions/5793214/creating-programming-code-box-on-my-
       --staged is a synonym of –cached (which is used in pre-1.6
       versions of Git)<br />
     </ul>
+    <ul>
+      <li><strong>git config --global user.email ""</strong></li><br />
+      This command specifies that we're working on git, that we are configuring it and that the configuration that we're making its for every project in the future (that's why --global is being used). If we'd like to use this configuration only for the current project we shouldn't include --global into the command list. User.mail"" specifies that we're making changes into the profile and adding the profile. If quotes are not included the command prints out the current email stored in the profile.
+      <div class="codebox">
+        <code>
+          <font color="green">$</font> git config --global user.email "kevin.verdhi@gmail.com"
+        </code>
+      </div> <br />As said above <br />
+      <div class="codebox">
+      <code>
+        <font color="green">$</font> git config --global user.email
+      </code>
+      </div> <br /> Prints out the current email stored in the git profile. <br />
+      <div class="codebox">
+        <code>
+          <font color="green">$</font> git config --global user.email
+          kevin.verdhi@gmail.com
+        </code>
+      </div> <br />
+    </ul>
+    <ul>
+      <li><strong>git diff --staged</strong></li><br />
+      Diffing is a function that takes two input data sets and outputs the changes between them. git diff is a multi-use Git command that when executed runs a diff function on Git data sources.When invoked, this command will compare all the differences of the file against the index file. <br />
+      <div class="codebox">
+        <code>
+          <font color="green">$</font> git diff --staged ./path/to/file
+        </code>
+      </div> <br />
+      <i>Note that --staged and --cached are synonymous options</i><br />
+       <br />
+    </ul>
+    <ul>
+      <li><strong>git checkout -b "branch"</strong></li><br />
+      This command switches branches or restores working files. Specifying -b causes a new branch to be created as if <code><strong>git-branch</strong></code> were called and then checked out. Meanwhile inside the quotes you specify the name of the branch. <br />
+      <br>If -B is given, < new_branch > is created if it doesn't exist; otherwise, it is reset. This is the transactional equivalent of</br>
+      <div class="codebox">
+        <code>
+          <font color="green">$</font> git branch -f "branch" ["start point"]
+      <br><font color="green">$</font> git checkout "branch"</br>
+        </code>
+      </div> <br />
+      that is to say, the branch is not reset/created unless "git checkout" is successful.<br />
+       <br />
+    </ul><ul>
+      <li><strong>git log --graph --all</strong></li><br />
+      The command takes options to control what is shown and how, and options applicable to the <strong><i>git diff-*</i></strong> commands to control how the changes each commit introduces are shown.</br>
+      <br>The option <strong><i>--graph</i></strong> draws a text-based graphical representation of the commit history on the left hand side of the output. This may cause extra lines to be printed in between commits, in order for the graph history to be drawn properly.</br>
+      <br>The option <strong><i>--all</i></strong> pretend as if all the refs in refs/ are listed on the command line as <strong><i>< commit ></i></strong>.
+      <br></br>
+      <br><strong>Usage</strong></br>
+      <div class="codebox">
+        <code>
+          <font color="green">$</font> git log --all --graph 
+        </code>
+      </div> <br />This command can be also upgraded by adding more specifications such as "--decorate , --oneline, --simplifybydecoration" etc.<br />
+       <br />
+    </ul>
+    <ul>
+      <li><strong>git branch -d "branch"-</strong></li><br />
+      To really understand the way Git does branching, we need to take a step back and examine how Git stores its data. As you may remember from Chapter 1, Git doesn’t store data as a series of changesets or deltas, but instead as a series of snapshots.
+
+When you commit in Git, Git stores a commit object that contains a pointer to the snapshot of the content you staged, the author and message metadata, and zero or more pointers to the commit or commits that were the direct parents of this commit: zero parents for the first commit, one parent for a normal commit, and multiple parents for a commit that results from a merge of two or more branches.
+<br></br>
+<br><i>As u can se below, this command creates a branch called test. By default the main branch is called master.</i></br>
+  <br></br>
+      <div class="codebox">
+        <code>
+          <font color="green">$</font> git branch test
+        </code>
+      </div> <br />The option -d deletes a certain branch which should be declared inside the quotes above.Combined the command would be <br />
+      <div class="codebox">
+      <code>
+        <font color="green">$</font> git branch -d "test"
+      </code>
+      </div> <br /> Which deletes the branch called test.  <br />
+      <center><strong><font color="red">ATTENTION!</font></strong></center>
+      <br>To see all the branches that contain work you haven't yet merged in, you can run git branch --no-merged:</br>
+      <div class="codebox">
+        <code><font color="green">$</font> git branch --no-merged
+  test
+</code>
+</div>
+<br>This shows your other branch. Because it contains work that is NOT merged in yet, trying to delete it with git branch -d will fail:</br>
+<div class="codebox">
+  <code><font color="green">$</font> git branch -d test
+<br><font color="red">error:</font> The branch '<font color="blue">test</font>' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D test'.</br></code>
+
+</div>
+    </ul>
+    <ul>
+      <li><strong>git fetch "remote" "branch"</strong></li><br />
+      When working with other people's repositories, there are a few basic Git commands to remember:
+      <br></br>
+      <ul>
+        <li><strong>git clone</strong></li>
+        <li><strong>git fetch</strong></li>
+        <li><strong>git pull</strong></li>
+        <li><strong>git merge</strong></li>
+        <br></br>
+      </ul>
+        <br> You use git fetch to retrieve new work done by other people. Fetching from a repository grabs all the new remote-tracking branches and tags without merging those changes into your own branches.</br>
+        <br></br>
+      <div class="codebox">
+        <code>
+          <font color="green">$</font> git fetch remotename
+<br><font color="green">#</font> Fetches updates made to a remote repository</br>
+        </code>
+      </div> <br />But it goes more far, you can even specify a specific branch by <br />
+      <div class="codebox">
+      <code>
+        <font color="green">$</font> git fetch remotename branchname
+        <br><font color="green">#</font> Fetches updates made to a remote branch in a repository</br>
+        <br>
+      </code>
+      </div>
+    </ul>
   </div>
 </div>
 </body>
