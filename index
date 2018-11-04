@@ -1,27 +1,54 @@
+<html><head>
+<style>
+/* From StackOverflow -
+https://stackoverflow.com/questions/5793214/creating-programming-code-box-on-my-website-w-xhtml-css */
+.codebox {
+        /* Below are styles for the codebox (not the code itself) */
+        border:1px solid black;
+        background-color:#EEEEFF;
+        width:300px;
+        overflow:auto;
+        padding:9px;
+    }
+    .codebox code {
+        /* Styles in here affect the text of the codebox */
+        font-size:0.9em;
+        /* You could also put all sorts of styling here, like different font, color, underline, etc. for the code. */
+    }
+</style>
+</head><body>
+<div id="container">
+  <h1>Git Manual</h1>
+  <div id="commands">
+   
+    <ul>
+      <li><strong>git config --global user.email ""</strong></li><br>
+      Sets commit email address.
+    </ul>
+	<ul>
+      <li><strong>git diff --staged</strong></li><br>
+	  Show changes between commits, commit and working tree, etc. 
+	  --staged views the changes you staged for the next commit relative to the named <commit>. If you do not give <commit>, it defaults to HEAD.
+    </commit></commit></ul>
+	<ul>
+      <li><strong>git checkout -b</strong></li><br>
+      Creates a new branch in local repository and switches to it. 
+    </ul>
+	<ul>
+      <li><strong>git log --graph --all</strong></li><br>
+	  git-log - Show commit logs
+	  --graph - Draw a text-based graphical representation of the commit history on the left hand side of the output.
+	  --all   - Pretend as if all the refs in refs/, along with HEAD, are listed on the command line as <commit>.
+    </commit></ul>
+	<ul>
+      <li><strong>git branch -d "branch"</strong></li><br>
+		Delete a branch. The branch must be fully merged in its upstream branch, or in HEAD
+	</ul>
+	<ul>
+      <li><strong>git fetch "remote" "branch"</strong></li><br>
+	  Download objects and refs from another repository
+    </ul>
+  </div>
+</div>
 
-Git Manual
-
-    git config --global user.email ""
-
-    Sets commit email address. 
-
-    git diff --staged
-
-    Show changes between commits, commit and working tree, etc. --staged views the changes you staged for the next commit relative to the named . If you do not give , it defaults to HEAD. 
-
-    git checkout -b
-
-    Creates a new branch in local repository and switches to it. 
-
-    git log --graph --all
-
-    git-log - Show commit logs --graph - Draw a text-based graphical representation of the commit history on the left hand side of the output. --all - Pretend as if all the refs in refs/, along with HEAD, are listed on the command line as . 
-
-    git branch -d "branch"
-
-    Delete a branch. The branch must be fully merged in its upstream branch, or in HEAD 
-
-    git fetch "remote" "branch"
-
-    Download objects and refs from another repository 
-
+</body></html>
